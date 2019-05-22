@@ -1,0 +1,77 @@
+{
+  "jcr:primaryType": "nt:folder",
+  "jcr:createdBy": "admin",
+  "jcr:created": "Thu Sep 06 2018 15:16:06 GMT+0200",
+  "en": {
+    "jcr:primaryType": "nt:folder",
+    "jcr:mixinTypes": [
+      "mix:language"
+    ],
+    "jcr:createdBy": "admin",
+    "jcr:language": "en",
+    "jcr:created": "Thu Sep 06 2018 15:16:06 GMT+0200",
+    "foundation.u65-news-letter-registration.placeholder-msg.email": {
+      "jcr:primaryType": "nt:folder",
+      "jcr:mixinTypes": [
+        "sling:Message"
+      ],
+      "jcr:createdBy": "admin",
+      "sling:message": "E-mail address",
+      "jcr:created": "Thu Sep 06 2018 15:16:06 GMT+0200"
+    },
+    "foundation.s08-specification-details.seeless": {
+      "jcr:primaryType": "nt:folder",
+      "jcr:mixinTypes": [
+        "sling:Message"
+      ],
+      "jcr:createdBy": "admin",
+      "sling:message": "See less specifications",
+      "jcr:created": "Thu Sep 06 2018 15:16:06 GMT+0200"
+    },
+    "foundation.u65-news-letter-registration.submit": {
+      "jcr:primaryType": "nt:folder",
+      "jcr:mixinTypes": [
+        "sling:Message"
+      ],
+      "jcr:createdBy": "admin",
+      "sling:message": "Subscribe",
+      "jcr:created": "Thu Sep 06 2018 15:16:06 GMT+0200"
+    }
+  },
+  "en-us": {
+    "jcr:primaryType": "nt:folder",
+    "jcr:mixinTypes": [
+      "mix:language"
+    ],
+    "jcr:createdBy": "admin",
+    "jcr:language": "en-us",
+    "jcr:created": "Thu Sep 06 2018 15:16:06 GMT+0200",
+    "foundation.u65-news-letter-registration.placeholder-msg.email": {
+      "jcr:primaryType": "nt:folder",
+      "jcr:mixinTypes": [
+        "sling:Message"
+      ],
+      "jcr:createdBy": "admin",
+      "sling:message": "E-mail address",
+      "jcr:created": "Thu Sep 06 2018 15:16:06 GMT+0200"
+    },
+    "foundation.s08-specification-details.seeless": {
+      "jcr:primaryType": "nt:folder",
+      "jcr:mixinTypes": [
+        "sling:Message"
+      ],
+      "jcr:createdBy": "admin",
+      "sling:message": "See less specifications",
+      "jcr:created": "Thu Sep 06 2018 15:16:06 GMT+0200"
+    },
+    "foundation.u65-news-letter-registration.submit": {
+      "jcr:primaryType": "nt:folder",
+      "jcr:mixinTypes": [
+        "sling:Message"
+      ],
+      "jcr:createdBy": "admin",
+      "sling:message": "Subscribe",
+      "jcr:created": "Thu Sep 06 2018 15:16:06 GMT+0200"
+    }
+  }
+}
