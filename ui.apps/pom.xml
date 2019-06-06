@@ -83,6 +83,9 @@
                     <failOnError>true</failOnError>
                     <name>Jetpack-Carve</name>
                     <group>Jetpack</group>
+                    <properties>
+                        <acHandling>merge_preserve</acHandling>
+                    </properties>
                     <embeddeds>
                         <embedded>
                             <groupId>be.ida.jetpack</groupId>
