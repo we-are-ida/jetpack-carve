@@ -6,26 +6,23 @@ import be.ida.jetpack.carve.manager.exception.ModelManagerException;
 import be.ida.jetpack.carve.models.*;
 import be.ida.jetpack.carve.util.ModelsUtil;
 import io.wcm.testing.mock.aem.junit.AemContext;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.sling.api.resource.Resource;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(MockitoJUnitRunner.class)
 public class ModelManagerImplTest {
-    public static final String PRIMITIVES_MODEL_ID = "123456789";
+
+    private static final String PRIMITIVES_MODEL_ID = "123456789";
     private static final String REFERENCES_MODEL_ID = "134543243";
+
     @Rule
     public final AemContext context = new AemContext();
-
     private ModelManager modelManager;
 
     private static void assertPrimitivesModel(PrimitivesModel primitivesModel) {
