@@ -17,7 +17,7 @@ import java.util.Optional;
 
 public class ModelManagerUtil {
     /**
-     * Checks if a class is considered a model or not by validating if the @model annotation is avialable on the class definiton.
+     * Checks if a class is considered a model or not by validating if the model annotation is avialable on the class definiton.
      *
      * @param model
      * @return
@@ -45,8 +45,8 @@ public class ModelManagerUtil {
 
     /**
      * Checks if the field holds a value.
-     * String, Date or primitive types -> true
-     * References -> false
+     * String, Date or primitive types: true
+     * References: false
      *
      * @param field
      * @return

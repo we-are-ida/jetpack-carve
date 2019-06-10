@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Persists the model under a date & timestamp based path using the following yyyy/MM/dd/HH/mm
+ * Persists the model under a date and timestamp based path using the following yyyy/MM/dd/HH/mm
  *
  */
 public class DatePathPolicyProvider implements PathPolicyProvider {
