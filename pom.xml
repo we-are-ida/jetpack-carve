@@ -102,6 +102,8 @@
                 <configuration>
                     <encoding>UTF-8</encoding>
 					<additionalparam>-Xdoclint:none</additionalparam>
+					<failOnError>false</failOnError>
+					<doclint>none</doclint>
                 </configuration>
                 <executions>
                     <execution>
