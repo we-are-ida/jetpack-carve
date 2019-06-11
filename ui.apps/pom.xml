@@ -8,7 +8,7 @@
     <parent>
         <groupId>be.ida.jetpack</groupId>
         <artifactId>carve</artifactId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
