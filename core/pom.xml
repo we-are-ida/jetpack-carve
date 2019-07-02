@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>be.ida.jetpack</groupId>
+        <groupId>be.ida_mediafoundry.jetpack</groupId>
         <artifactId>carve</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -37,7 +37,7 @@
                         <_plugin>org.apache.sling.bnd.models.ModelsScannerPlugin;generatePackagesHeader=true</_plugin>
                         <_dsannotations>*</_dsannotations>
                         <_metatypeannotations>*</_metatypeannotations>
-                        <Export-Package>be.ida.jetpack.carve.manager,be.ida.jetpack.carve.manager.exception,be.ida.jetpack.carve.manager.pathpolicy.providers,be.ida.jetpack.carve.annotations</Export-Package>
+                        <Export-Package>be.ida_mediafoundry.jetpack.carve.manager,be.ida_mediafoundry.jetpack.carve.manager.exception,be.ida_mediafoundry.jetpack.carve.manager.pathpolicy.providers,be.ida_mediafoundry.jetpack.carve.annotations</Export-Package>
                     </instructions>
                 </configuration>
                 <executions>

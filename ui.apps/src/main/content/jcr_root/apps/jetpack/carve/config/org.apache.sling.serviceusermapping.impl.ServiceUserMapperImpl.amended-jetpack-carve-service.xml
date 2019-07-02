@@ -3,4 +3,4 @@
           xmlns:jcr="http://www.jcp.org/jcr/1.0"
           jcr:primaryType="sling:OsgiConfig"
           user.default="jetpack-carve-service"
-          user.mapping="[be.ida.jetpack.carve.core:jetpack-carve-service=jetpack-carve-service]" />
+          user.mapping="[be.ida_mediafoundry.jetpack.carve.core:jetpack-carve-service=jetpack-carve-service]" />
