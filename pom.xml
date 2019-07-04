@@ -8,6 +8,25 @@
 
     <name>Jetpack Carve - Object Relational Mapper</name>
     <description>Jetpack Carve - Object Relational Mapper.</description>
+    <url>https://github.com/ida-mediafoundry/jetpack-carve</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>bswinnen</id>
+            <name>Bert Swinnen</name>
+            <email>bert.swinnen@ida-mediafoundry.be</email>
+            <organization>iDA Mediafoundry</organization>
+            <organizationUrl>https://www.ida-mediafoundry.be</organizationUrl>
+        </developer>
+    </developers>
 
     <organization>
         <name>iDA Mediafoundry</name>
@@ -43,8 +62,7 @@
         </snapshotRepository>
         <repository>
             <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/
-            </url>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
 
