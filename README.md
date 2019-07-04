@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ida-mediafoundry/jetpack-carve.svg?branch=master)](https://travis-ci.org/ida-mediafoundry/jetpack-carve)
+
 # Jetpack Carve - Object Relational Mapper
 (powered by iDA Mediafoundry)
 
@@ -7,8 +9,7 @@ like Hibernate offers for SQL based systems.
 
 ## Usage
 
-1. First create a service user `jetpack-carve` & `jetpack-carve-service`
-2. Add dependency 
+Add dependency in your pom.xml to Jetpack carve.
 
 ## Modules
 
@@ -42,7 +43,6 @@ Or to deploy only the bundle to the author, run
 ## Testing
 
 There are three levels of testing contained in the project:
-
-* unit test in core: this show-cases classic unit testing of the code contained in the bundle. To test, execute:
+Unit test in core: this show-cases classic unit testing of the code contained in the bundle. To test, execute:
 
     mvn clean test

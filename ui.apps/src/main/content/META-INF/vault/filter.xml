@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
     <filter root="/apps/jetpack/carve"/>
+
+    <filter root="/home/users/system/jetpack-carve-service"/>
+    <filter root="/rep:policy"/>
 </workspaceFilter>
