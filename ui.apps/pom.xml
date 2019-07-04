@@ -8,7 +8,7 @@
     <parent>
         <groupId>be.ida-mediafoundry.jetpack</groupId>
         <artifactId>carve</artifactId>
-        <version>0.0.3-SNAPSHOT</version>
+        <version>0.0.3</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
