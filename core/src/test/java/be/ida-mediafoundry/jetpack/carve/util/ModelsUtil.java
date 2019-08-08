@@ -1,6 +1,6 @@
-package be.ida_mediafoundry.jetpack.carve.util;
+package be.ida-mediafoundry.jetpack.carve.util;
 
-import be.ida_mediafoundry.jetpack.carve.models.*;
+import be.ida-mediafoundry.jetpack.carve.models.*;
 import java.util.Calendar;
 import java.util.Date;
 

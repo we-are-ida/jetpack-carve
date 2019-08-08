@@ -1,17 +1,17 @@
-package be.ida_mediafoundry.jetpack.carve.models;
+package be.ida-mediafoundry.jetpack.carve.models;
 
-import be.ida_mediafoundry.jetpack.carve.annotations.CarveId;
-import be.ida_mediafoundry.jetpack.carve.annotations.CarveModel;
-import be.ida_mediafoundry.jetpack.carve.manager.pathpolicy.providers.DatePathPolicyProvider;
+import be.ida-mediafoundry.jetpack.carve.annotations.CarveId;
+import be.ida-mediafoundry.jetpack.carve.annotations.CarveModel;
+import be.ida-mediafoundry.jetpack.carve.manager.pathpolicy.providers.BucketPathPolicyProvider;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Model;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-@CarveModel(pathPolicyProvider = DatePathPolicyProvider.class)
+@CarveModel(pathPolicyProvider = BucketPathPolicyProvider.class)
 @Model(adaptables = Resource.class)
-public class DatePathPolicyBasedModel {
+public class BucketPathPolicyBasedModel {
     @CarveId
     @Inject
     @Named("test-id")
