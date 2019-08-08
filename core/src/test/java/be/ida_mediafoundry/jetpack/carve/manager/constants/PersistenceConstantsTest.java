@@ -1,4 +1,4 @@
-package be.ida-mediafoundry.jetpack.carve.manager.constants;
+package be.ida_mediafoundry.jetpack.carve.manager.constants;
 
 import org.junit.Test;
 

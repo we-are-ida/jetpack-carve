@@ -1,10 +1,10 @@
-package be.ida-mediafoundry.jetpack.carve.manager.impl;
+package be.ida_mediafoundry.jetpack.carve.manager.impl;
 
-import be.ida-mediafoundry.jetpack.carve.manager.ModelManager;
-import be.ida-mediafoundry.jetpack.carve.manager.constants.PersistenceConstants;
-import be.ida-mediafoundry.jetpack.carve.manager.exception.ModelManagerException;
-import be.ida-mediafoundry.jetpack.carve.models.*;
-import be.ida-mediafoundry.jetpack.carve.util.ModelsUtil;
+import be.ida_mediafoundry.jetpack.carve.manager.ModelManager;
+import be.ida_mediafoundry.jetpack.carve.manager.constants.PersistenceConstants;
+import be.ida_mediafoundry.jetpack.carve.manager.exception.ModelManagerException;
+import be.ida_mediafoundry.jetpack.carve.models.*;
+import be.ida_mediafoundry.jetpack.carve.util.ModelsUtil;
 import io.wcm.testing.mock.aem.junit.AemContext;
 import org.apache.sling.api.resource.Resource;
 import org.junit.Before;
