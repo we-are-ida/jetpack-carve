@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ida-mediafoundry/jetpack-carve.svg?branch=master)](https://travis-ci.org/ida-mediafoundry/jetpack-carve)
+[![Build Status](https://travis-ci.org/ida-mediafoundry/jetpack-carve.svg?branch=master)](https://travis-ci.org/ida-mediafoundry/jetpack-carve)[![codecov](https://codecov.io/gh/ida-mediafoundry/jetpack-carve/branch/master/graph/badge.svg)](https://codecov.io/gh/ida-mediafoundry/jetpack-carve)
 
 # Jetpack Carve - Object Relational Mapper
 (powered by iDA Mediafoundry)
