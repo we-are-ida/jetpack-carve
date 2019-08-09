@@ -3,14 +3,11 @@ language: java
 jdk:
   - openjdk8
 
-install:
-  - pip install codecov
-
 script:
   - mvn clean install cobertura:cobertura
 
 after_success:
-  - codecov
+  - bash <(curl -s https://codecov.io/bash)
 
 notifications:
   email:
