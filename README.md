@@ -9,7 +9,35 @@ like Hibernate offers for SQL based systems.
 
 ## Usage
 
-Add dependency in your pom.xml to Jetpack carve.
+* Add dependency in your pom.xml to Jetpack carve:
+
+```xml
+<dependency>
+    <groupId>be.ida-mediafoun.jetpack</groupId>
+    <artifactId>carve</artifactId>
+    <version>${project.version}</version>
+</dependency>
+```
+
+* Add **@CarveModel** and **@CarveId** annotations on the sling models that need to be persisted:
+
+```java
+@CarveModel(pathPolicyProvider = SimplePathPolicyProvider.class, location = "/content/data")
+@Model(adaptables = Resource.class)
+public class MySlingModel {
+
+    @CarveId
+    @Inject
+    private String id;
+   
+```
+
+* Use the modelmanager to perist and/or load the data:
+
+```java
+modelManager.persist(model);
+modelManager.retrieve(MySlingModel.class, "123");
+```
 
 ## Modules
 

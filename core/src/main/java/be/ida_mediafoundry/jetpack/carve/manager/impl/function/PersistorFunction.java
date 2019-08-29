@@ -1,5 +1,6 @@
 package be.ida_mediafoundry.jetpack.carve.manager.impl.function;
 
+import be.ida_mediafoundry.jetpack.carve.annotations.CarveId;
 import be.ida_mediafoundry.jetpack.carve.manager.constants.PersistenceConstants;
 import be.ida_mediafoundry.jetpack.carve.manager.exception.ModelManagerException;
 import be.ida_mediafoundry.jetpack.carve.manager.exception.PersistorException;
@@ -16,8 +17,10 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.util.Arrays;
+import java.util.*;
 import java.util.function.Function;
+
+import static be.ida_mediafoundry.jetpack.carve.manager.util.ModelManagerUtil.canStoreInMultiValueProperty;
 
 public class PersistorFunction extends ManagerFunction implements Function<ResourceResolver, Object> {
     private static final String MSG_CAN_NOT_SERIALIZE_MODEL = "Can not serialize model.";
@@ -85,9 +88,12 @@ public class PersistorFunction extends ManagerFunction implements Function<Resou
                     field.setAccessible(true);
                     if (ModelManagerUtil.isValue(field)) {
                         serializeValue(resource, field);
+                    } else if (Collection.class.isAssignableFrom(field.getType())) {
+                        serializeCollection(resource, field);
                     } else {
-                        serializeModel(resourceResolver, resource, field);
+                        serializeField(resourceResolver, resource, field);
                     }
+                    // TODO support persisting of maps?
                 } else {
                     LOG.debug("Field {} is not eligible for persistence.", field.getName());
                 }
@@ -103,7 +109,65 @@ public class PersistorFunction extends ManagerFunction implements Function<Resou
         return model;
     }
 
-    private void serializeModel(ResourceResolver resourceResolver, Resource resource, Field field) throws ValidationException, IllegalAccessException {
+    private void serializeCollection(Resource resource, Field field) throws ValidationException {
+        // check if this is a collection of types we can store in a multivalue property
+        if (canStoreInMultiValueProperty(field)) {
+            storeMultiValueProperty(resource, field);
+        } else {
+            storeCollectionOfModels(resource, field);
+        }
+    }
+
+    private void storeMultiValueProperty(Resource resource, Field field) throws ValidationException {
+        new SimpleSerializerImpl(field).serializeMultiValue(resource, model);
+    }
+
+    private void storeCollectionOfModels(Resource resource, Field field) throws ValidationException {
+        try {
+            // create container node
+            final String containerNodePath = String.format("%s/%s", resource.getPath(), field.getName());
+            ResourceUtil.getOrCreateResource(
+                    resource.getResourceResolver(),
+                    containerNodePath,
+                    PersistenceConstants.RESOURCE_TYPE_COLLECTION,
+                    PersistenceConstants.RESOURCE_TYPE_COLLECTION,
+                    true);
+
+            // store child nodes
+            Object models[] = ((Collection)field.get(model)).toArray();
+            for (Object model : models) {
+                if (ModelManagerUtil.isModel(model)) {
+                    new PersistorFunction(model, containerNodePath, determineCarveId(model)).apply(resource.getResourceResolver());
+                } else {
+                    LOG.error("Can't persist non-annotated model in field: {}", field.getName());
+                }
+            }
+        } catch (PersistenceException e) {
+            LOG.error("Couldn't create container node", e);
+        } catch (IllegalAccessException e) {
+            LOG.error("Couldn't store child in container", e);
+        }
+    }
+
+    private String determineCarveId(Object model) {
+        // see if a field has the CarveId annotation
+        Field annotatedField = Arrays.stream(model.getClass().getDeclaredFields())
+                     .filter(field -> field.getAnnotationsByType(CarveId.class).length > 0)
+                     .findFirst()
+                     .orElse(null);
+        if (annotatedField != null) {
+            try {
+                annotatedField.setAccessible(true);
+                return String.valueOf(annotatedField.get(model));
+            } catch (IllegalAccessException e) {
+                LOG.error("Couldnt get carveid field value", e);
+            }
+        }
+        // can't persist, we need a unique name
+        throw new PersistorException("Can't determine unique name for child model");
+    }
+
+    private void serializeField(ResourceResolver resourceResolver, Resource resource, Field field) throws ValidationException, IllegalAccessException {
         // Prevent trying to persist services/components that are referenced by the model
         if (ModelManagerUtil.isModel(field.get(model))) {
             String child = determineChildResourceName(field);

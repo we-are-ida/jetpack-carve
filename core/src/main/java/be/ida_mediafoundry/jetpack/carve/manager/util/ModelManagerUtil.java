@@ -10,6 +10,8 @@ import org.apache.sling.models.annotations.Model;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -53,6 +55,16 @@ public class ModelManagerUtil {
      */
     public static boolean isValue(Field field) {
         return field.getType().equals(String.class) || ClassUtils.isPrimitiveOrWrapper(field.getType()) || field.getType().equals(Date.class) || field.getType().equals(Calendar.class);
+    }
+
+    public static boolean canStoreInMultiValueProperty(Field field) {
+        if (ParameterizedType.class.isAssignableFrom(field.getGenericType().getClass())) {
+            ParameterizedType aType = (ParameterizedType) field.getGenericType();
+            Type[] fieldArgTypes = aType.getActualTypeArguments();
+            Class fieldArgClass = (Class) fieldArgTypes[0];
+            return ClassUtils.isPrimitiveOrWrapper(fieldArgClass) || fieldArgClass.equals(String.class);
+        }
+        return false;
     }
 
     /**

@@ -26,11 +26,18 @@
             <organization>iDA Mediafoundry</organization>
             <organizationUrl>https://www.ida-mediafoundry.be</organizationUrl>
         </developer>
+        <developer>
+            <id>svbeek</id>
+            <name>Sander van Beek</name>
+            <email>sander.vanbeek@ida-mediafoundry.nl</email>
+            <organization>iDA Mediafoundry</organization>
+            <organizationUrl>https://www.ida-mediafoundry.nl</organizationUrl>
+        </developer>
     </developers>
 
     <organization>
         <name>iDA Mediafoundry</name>
-        <url>https://www.ida-mediafoundry.be</url>
+        <url>https://www.ida-mediafoundry.com</url>
     </organization>
 
     <modules>
