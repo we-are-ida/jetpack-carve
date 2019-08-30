@@ -1,21 +1,56 @@
 [![Build Status](https://travis-ci.org/ida-mediafoundry/jetpack-carve.svg?branch=master)](https://travis-ci.org/ida-mediafoundry/jetpack-carve) [![codecov](https://codecov.io/gh/ida-mediafoundry/jetpack-carve/branch/master/graph/badge.svg)](https://codecov.io/gh/ida-mediafoundry/jetpack-carve)
 
-# Jetpack Carve - Object Relational Mapper
+# Jetpack Carve - AEM Object Relational Mapper
 (powered by iDA Mediafoundry)
 
 This is a project that contains a Sling Model Object Relational Mapper named **Carve** that aims 
-to simplify writing to data with Sling Models. Jetpack Carve aims to provide an ORM like experience 
-like Hibernate offers for SQL based systems.
+to simplify writing data to the repository with Sling Models. Jetpack Carve aims to provide an ORM like experience 
+like Hibernate offers for SQL based systems, but then for AEM.
 
 ## Usage
 
-* Add dependency in your pom.xml to Jetpack carve:
+* Add Carve as a dependency in your parent pom. Its recommeded to define the version in a property (carve.version):
 
 ```xml
 <dependency>
-    <groupId>be.ida-mediafoun.jetpack</groupId>
-    <artifactId>carve</artifactId>
-    <version>${project.version}</version>
+    <groupId>be.ida-mediafoundry.jetpack</groupId>
+    <artifactId>carve.ui.apps</artifactId>
+    <version>${carve.version}</version>
+    <type>content-package</type>
+</dependency>
+<dependency>
+    <groupId>be.ida-mediafoundry.jetpack</groupId>
+    <artifactId>carve.core</artifactId>
+    <version>${carve.version}</version>
+</dependency>
+```
+
+In your content module (apps module) add the following subpackage to be included by the content package plugin:
+
+```xml
+<plugin>
+    <groupId>com.day.jcr.vault</groupId>
+    <artifactId>content-package-maven-plugin</artifactId>
+    ...
+    <configuration>
+        <subPackages>
+            <subPackage>
+                <groupId>be.ida-mediafoundry.jetpack</groupId>
+                <artifactId>carve.ui.apps</artifactId>
+                <filter>true</filter>
+            </subPackage>
+        </subPackages>
+    </configuration>
+</plugin>
+```
+
+In your OSGI bundle (core module) add this dependency:
+
+```xml
+<dependency>
+    <groupId>be.ida-mediafoundry.jetpack</groupId>
+    <artifactId>carve.core</artifactId>
+    <scope>provided</scope>
 </dependency>
 ```
 
