@@ -4,7 +4,7 @@
     <groupId>be.ida-mediafoundry.jetpack</groupId>
     <artifactId>carve</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.1</version>
 
     <name>Jetpack Carve - Object Relational Mapper</name>
     <description>Jetpack Carve - Object Relational Mapper.</description>
@@ -77,7 +77,7 @@
         <connection>scm:git:git://github.com/ida-mediafoundry/jetpack-carve.git</connection>
         <developerConnection>scm:git:git@github.com:ida-mediafoundry/jetpack-carve.git</developerConnection>
         <url>https://github.com/ida-mediafoundry/jetpack-carve</url>
-        <tag>carve-0.0.2</tag>
+        <tag>carve-1.1.1</tag>
     </scm>
 
     <build>
