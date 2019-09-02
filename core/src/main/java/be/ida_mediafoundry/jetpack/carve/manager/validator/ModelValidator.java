@@ -25,11 +25,14 @@ public class ModelValidator {
     }
 
     private static void validateCarveId(Class clazz) throws ValidationException {
-        boolean found = Arrays.stream(clazz.getDeclaredFields())
-                .map(Field::getDeclaredAnnotations).findFirst()
-                .filter(fieldAnnotations -> Arrays.stream(fieldAnnotations)
-                        .anyMatch(annotation -> annotation instanceof CarveId))
-                .isPresent();
+        boolean found = false;
+        for (Field field : clazz.getDeclaredFields()) {
+            for (Annotation annotation : field.getDeclaredAnnotations()) {
+                if (annotation instanceof CarveId) {
+                    found = true;
+                }
+            }
+        }
 
         if (!found) {
             throw new ValidationException(String.format("No @CarveId annotation was found. Please add it to one of the members of class %s", clazz));
