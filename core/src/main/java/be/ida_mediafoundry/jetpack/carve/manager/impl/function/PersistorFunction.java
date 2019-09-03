@@ -134,12 +134,14 @@ public class PersistorFunction extends ManagerFunction implements Function<Resou
                     true);
 
             // store child nodes
-            Object models[] = ((Collection)field.get(model)).toArray();
-            for (Object model : models) {
-                if (ModelManagerUtil.isModel(model)) {
-                    new PersistorFunction(model, containerNodePath, determineCarveId(model)).apply(resource.getResourceResolver());
-                } else {
-                    LOG.error("Can't persist non-annotated model in field: {}", field.getName());
+            if (field.get(model) != null) {
+                Object models[] = ((Collection) field.get(model)).toArray();
+                for (Object model : models) {
+                    if (ModelManagerUtil.isModel(model)) {
+                        new PersistorFunction(model, containerNodePath, determineCarveId(model)).apply(resource.getResourceResolver());
+                    } else {
+                        LOG.error("Can't persist non-annotated model in field: {}", field.getName());
+                    }
                 }
             }
         } catch (PersistenceException e) {
